@@ -1,0 +1,31 @@
+# Protecting wp-config.php
+<Files wp-config.php>
+Order Allow,Deny
+Deny from all
+</files>
+
+# Stop directory browsing
+Options ALL-Indexes
+
+# Disable Signature
+ServerSignature OFF
+
+# Restrict Admin Access
+<Files wp-login.php>
+order allow,deny
+deny from all
+Allow from xx.xx.xxx.xxxx
+</Files>
+
+# Protect .htaccess file
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+order allow, deny
+deny from all
+satisfy all
+</Files>
+
+# Preventing Access to .htaccess File
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
